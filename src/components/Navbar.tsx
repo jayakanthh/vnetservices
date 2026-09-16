@@ -31,10 +31,10 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        "fixed -top-10 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "bg-white border-b border-(--vnet-silver-light) pt-[calc(env(safe-area-inset-top)+1rem)] pb-4 shadow-sm"
-          : "bg-transparent pt-[calc(env(safe-area-inset-top)+1.5rem)] pb-6"
+          ? "bg-white/85 backdrop-blur-md border-b border-(--vnet-silver-light) pt-[calc(env(safe-area-inset-top)+3.5rem)] pb-4"
+          : "bg-transparent pt-[calc(env(safe-area-inset-top)+4rem)] pb-6"
       )}
     >
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
