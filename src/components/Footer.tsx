@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import logoImg from "../../public/logo-with-text.png";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,7 +12,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-20">
           <div className="lg:col-span-2">
             <Link href="#top" className="inline-block mb-6">
-              <Image src="/logo-with-text.png" alt="VNet Services" width={180} height={48} className="h-12 w-auto brightness-0 invert" />
+              <Image src={logoImg} alt="VNet Services" className="h-12 w-auto brightness-0 invert" />
             </Link>
             <p className="text-(--vnet-silver-light) max-w-sm mb-8 text-sm leading-relaxed">
               Technology built around your business. We deliver custom software development, IT consulting, and strategic digital engineering to established organizations.

@@ -16,6 +16,8 @@ const navLinks = [
   { name: "Contact", href: "#contact" },
 ];
 
+import logoImg from "../../public/logo-with-text.png";
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -42,7 +44,7 @@ export function Navbar() {
         {/* Logo */}
         <Link href="#top" className="flex items-center gap-2 z-50">
           <div className="h-10 w-auto relative flex items-center">
-             <Image src="/logo-with-text.png" alt="VNet Services" width={150} height={40} className="h-10 w-auto object-contain" />
+             <Image src={logoImg} alt="VNet Services" className="h-10 w-auto object-contain" />
           </div>
         </Link>
 
