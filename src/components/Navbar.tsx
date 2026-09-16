@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -15,8 +14,6 @@ const navLinks = [
   { name: "About", href: "#about" },
   { name: "Contact", href: "#contact" },
 ];
-
-import logoImg from "../../public/logo-with-text.png";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -44,7 +41,7 @@ export function Navbar() {
         {/* Logo */}
         <Link href="#top" className="flex items-center gap-2 z-50">
           <div className="h-10 w-auto relative flex items-center">
-             <Image src={logoImg} alt="VNet Services" className="h-10 w-auto object-contain" />
+             <img src="/vnetservices/logo-with-text.png" alt="VNet" className="h-10 w-auto object-contain" />
           </div>
         </Link>
 
