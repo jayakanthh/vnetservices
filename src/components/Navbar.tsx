@@ -33,7 +33,7 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-(--vnet-silver-light) pt-[calc(env(safe-area-inset-top)+1rem)] pb-4"
+          ? "bg-white border-b border-(--vnet-silver-light) pt-[calc(env(safe-area-inset-top)+1rem)] pb-4 shadow-sm"
           : "bg-transparent pt-[calc(env(safe-area-inset-top)+1.5rem)] pb-6"
       )}
     >
