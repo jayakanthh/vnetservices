@@ -2,25 +2,44 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #111827; /* Deep neutral */
+  
+  --vnet-violet: #312e81; /* Deep indigo/violet */
+  --vnet-violet-light: #4338ca;
+  --vnet-violet-dark: #1e1b4b;
+  
+  --vnet-silver: #9ca3af;
+  --vnet-silver-light: #e5e7eb;
+  
+  --vnet-off-white: #f9fafb;
+  --vnet-charcoal: #1f2937;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  
+  --color-brand-violet: var(--vnet-violet);
+  --color-brand-violet-light: var(--vnet-violet-light);
+  --color-brand-violet-dark: var(--vnet-violet-dark);
+  --color-brand-silver: var(--vnet-silver);
+  --color-brand-silver-light: var(--vnet-silver-light);
+  --color-brand-offwhite: var(--vnet-off-white);
+  --color-brand-charcoal: var(--vnet-charcoal);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  
+  ::selection {
+    background-color: var(--vnet-violet);
+    color: white;
+  }
 }
