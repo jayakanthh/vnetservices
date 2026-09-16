@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -41,7 +42,7 @@ export function Navbar() {
         {/* Logo */}
         <Link href="#top" className="flex items-center gap-2 z-50">
           <div className="h-10 w-auto relative flex items-center">
-             <img src="/logo-with-text.png" alt="VNet Services" className="h-10 w-auto object-contain" />
+             <Image src="/logo-with-text.png" alt="VNet Services" width={150} height={40} className="h-10 w-auto object-contain" />
           </div>
         </Link>
 
