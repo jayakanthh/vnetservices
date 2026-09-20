@@ -1,9 +1,13 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 
 export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const lenisRef = useRef<Lenis | null>(null);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -14,6 +18,8 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
       wheelMultiplier: 1,
       touchMultiplier: 2,
     });
+    
+    lenisRef.current = lenis;
 
     function raf(time: number) {
       lenis.raf(time);
@@ -34,7 +40,6 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
         anchor.origin === window.location.origin
       ) {
         // Only intercept if the anchor points to the CURRENT page.
-        // This allows <Link href="/#services"> to work correctly from other pages.
         if (anchor.pathname === window.location.pathname) {
           e.preventDefault();
           
@@ -45,7 +50,6 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
             });
             window.history.pushState(null, "", window.location.pathname);
           } else {
-            // Check if element exists before scrolling to prevent errors
             const targetElement = document.querySelector(anchor.hash);
             if (targetElement) {
               lenis.scrollTo(anchor.hash, {
@@ -67,6 +71,20 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
       document.removeEventListener("click", handleAnchorClick);
     };
   }, []);
+
+  // Force resize calculation when pathname changes
+  useEffect(() => {
+    if (lenisRef.current) {
+      // Small timeout to allow DOM to paint the new page content
+      setTimeout(() => {
+        lenisRef.current?.resize();
+        // Also scroll to top on navigation to simulate native browser behavior
+        if (!window.location.hash) {
+          lenisRef.current?.scrollTo(0, { immediate: true });
+        }
+      }, 100);
+    }
+  }, [pathname]);
 
   return <>{children}</>;
 }
