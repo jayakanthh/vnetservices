@@ -9,7 +9,7 @@ export function Footer() {
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-20">
           <div className="lg:col-span-2">
-            <Link href="#top" className="inline-block mb-6">
+            <Link href="/" className="inline-block mb-6">
               <img src="/vnetservices/logo-with-text.png" alt="VNet" className="h-12 w-auto brightness-0 invert" />
             </Link>
             <p className="text-(--vnet-silver-light) max-w-sm mb-8 text-sm leading-relaxed">

@@ -39,7 +39,7 @@ export function Navbar() {
     >
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Logo */}
-        <Link href="#top" className="flex items-center gap-2 z-50">
+        <Link href="/" className="flex items-center gap-2 z-50">
           <div className="h-10 w-auto relative flex items-center">
              <img src="/vnetservices/logo-with-text.png" alt="VNet" className="h-10 w-auto object-contain" />
           </div>

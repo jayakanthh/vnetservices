@@ -27,22 +27,35 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
       const target = e.target as HTMLElement;
       const anchor = target.closest("a");
       
-      if (anchor && anchor.hash && anchor.hash.startsWith("#") && anchor.origin === window.location.origin) {
-        e.preventDefault();
-        
-        if (anchor.hash === "#top") {
-          lenis.scrollTo(0, {
-            duration: 1.5,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-          });
-          window.history.pushState(null, "", window.location.pathname);
-        } else {
-          lenis.scrollTo(anchor.hash, {
-            offset: -80, // Offset for navbar
-            duration: 1.5,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-          });
-          window.history.pushState(null, "", anchor.hash);
+      if (
+        anchor && 
+        anchor.hash && 
+        anchor.hash.startsWith("#") && 
+        anchor.origin === window.location.origin
+      ) {
+        // Only intercept if the anchor points to the CURRENT page.
+        // This allows <Link href="/#services"> to work correctly from other pages.
+        if (anchor.pathname === window.location.pathname) {
+          e.preventDefault();
+          
+          if (anchor.hash === "#top") {
+            lenis.scrollTo(0, {
+              duration: 1.5,
+              easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+            });
+            window.history.pushState(null, "", window.location.pathname);
+          } else {
+            // Check if element exists before scrolling to prevent errors
+            const targetElement = document.querySelector(anchor.hash);
+            if (targetElement) {
+              lenis.scrollTo(anchor.hash, {
+                offset: -80, // Offset for navbar
+                duration: 1.5,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+              });
+              window.history.pushState(null, "", anchor.hash);
+            }
+          }
         }
       }
     };
