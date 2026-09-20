@@ -16,6 +16,21 @@ export default function Home() {
       <Navbar />
       <main className="flex min-h-screen flex-col">
         <Hero />
+        
+        {/* Social Proof / Trusted By */}
+        <section className="py-12 border-b border-(--vnet-silver-light) bg-white">
+          <div className="container mx-auto px-6 md:px-12 text-center">
+            <p className="text-sm font-semibold tracking-widest uppercase text-(--vnet-charcoal)/60 mb-8">Trusted By Industry Leaders</p>
+            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 grayscale">
+              <span className="text-xl font-bold font-serif">Acme Corp</span>
+              <span className="text-xl font-bold font-sans">GlobalTech</span>
+              <span className="text-xl font-bold font-mono">FINSYS</span>
+              <span className="text-xl font-bold font-serif italic">MediCare Plus</span>
+              <span className="text-xl font-bold tracking-tighter">LOGISTICA</span>
+            </div>
+          </div>
+        </section>
+
         <CompanyPositioning />
         <Services />
         <Industries />

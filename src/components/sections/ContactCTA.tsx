@@ -6,9 +6,22 @@ import { Button } from "../ui/Button";
 export function ContactCTA() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError("");
+    
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email") as string;
+    
+    // Basic client-side email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
     setIsSubmitting(true);
     // Simulate API call
     setTimeout(() => {
@@ -31,14 +44,18 @@ export function ContactCTA() {
               Partner with VNet Services to engineer the technical foundation your business needs to scale, innovate, and lead.
             </p>
             
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-8">
               <div>
-                <p className="text-sm font-semibold tracking-wide uppercase text-(--vnet-silver) mb-2">Global Headquarters</p>
-                <p className="text-(--foreground) text-lg font-medium">New York, NY</p>
+                <p className="text-sm font-semibold tracking-wide uppercase text-(--vnet-charcoal)/70 mb-2">Global Headquarters</p>
+                <p className="text-(--foreground) text-lg font-medium">
+                  123 Innovation Drive, Tech District<br/>
+                  San Francisco, CA 94105
+                </p>
               </div>
               <div>
-                <p className="text-sm font-semibold tracking-wide uppercase text-(--vnet-silver) mb-2">General Enquiries</p>
-                <a href="mailto:hello@vnetservices.com" className="text-(--vnet-violet) text-lg font-medium hover:underline">hello@vnetservices.com</a>
+                <p className="text-sm font-semibold tracking-wide uppercase text-(--vnet-charcoal)/70 mb-2">Direct Contact</p>
+                <a href="mailto:contact@vnetservices.com" className="text-(--vnet-violet) text-lg font-medium hover:underline block mb-1">contact@vnetservices.com</a>
+                <a href="tel:+15551234567" className="text-(--vnet-charcoal) text-lg font-medium hover:text-(--vnet-violet) transition-colors">+1 (555) 123-4567</a>
               </div>
             </div>
           </div>
@@ -56,31 +73,38 @@ export function ContactCTA() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                
+                {error && (
+                  <div className="p-3 bg-red-50 border border-red-200 text-red-600 rounded text-sm font-medium">
+                    {error}
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-2">
-                    <label htmlFor="name" className="text-sm font-semibold text-(--vnet-charcoal)">Name</label>
-                    <input type="text" id="name" required className="border-b border-(--vnet-silver) py-2 bg-transparent focus:outline-none focus:border-(--vnet-violet) transition-colors" />
+                    <label htmlFor="name" className="text-sm font-semibold text-(--vnet-charcoal)">Name *</label>
+                    <input type="text" id="name" name="name" required className="border-b border-(--vnet-silver) py-2 bg-transparent focus:outline-none focus:border-(--vnet-violet) transition-colors" />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label htmlFor="company" className="text-sm font-semibold text-(--vnet-charcoal)">Company</label>
-                    <input type="text" id="company" required className="border-b border-(--vnet-silver) py-2 bg-transparent focus:outline-none focus:border-(--vnet-violet) transition-colors" />
+                    <label htmlFor="company" className="text-sm font-semibold text-(--vnet-charcoal)">Company *</label>
+                    <input type="text" id="company" name="company" required className="border-b border-(--vnet-silver) py-2 bg-transparent focus:outline-none focus:border-(--vnet-violet) transition-colors" />
                   </div>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-2">
-                    <label htmlFor="email" className="text-sm font-semibold text-(--vnet-charcoal)">Email</label>
-                    <input type="email" id="email" required className="border-b border-(--vnet-silver) py-2 bg-transparent focus:outline-none focus:border-(--vnet-violet) transition-colors" />
+                    <label htmlFor="email" className="text-sm font-semibold text-(--vnet-charcoal)">Email *</label>
+                    <input type="email" id="email" name="email" required className="border-b border-(--vnet-silver) py-2 bg-transparent focus:outline-none focus:border-(--vnet-violet) transition-colors" />
                   </div>
                   <div className="flex flex-col gap-2">
                     <label htmlFor="phone" className="text-sm font-semibold text-(--vnet-charcoal)">Phone</label>
-                    <input type="tel" id="phone" className="border-b border-(--vnet-silver) py-2 bg-transparent focus:outline-none focus:border-(--vnet-violet) transition-colors" />
+                    <input type="tel" id="phone" name="phone" className="border-b border-(--vnet-silver) py-2 bg-transparent focus:outline-none focus:border-(--vnet-violet) transition-colors" />
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2 mt-4">
                   <label htmlFor="help" className="text-sm font-semibold text-(--vnet-charcoal)">How can we help?</label>
-                  <select id="help" className="border-b border-(--vnet-silver) py-2 bg-transparent focus:outline-none focus:border-(--vnet-violet) transition-colors text-(--foreground)">
+                  <select id="help" name="help" className="border-b border-(--vnet-silver) py-2 bg-transparent focus:outline-none focus:border-(--vnet-violet) transition-colors text-(--foreground)">
                     <option>Custom Software Development</option>
                     <option>Mobile Solutions</option>
                     <option>Software Testing</option>
@@ -90,8 +114,8 @@ export function ContactCTA() {
                 </div>
 
                 <div className="flex flex-col gap-2 mt-4 mb-6">
-                  <label htmlFor="message" className="text-sm font-semibold text-(--vnet-charcoal)">Message</label>
-                  <textarea id="message" rows={3} required className="border-b border-(--vnet-silver) py-2 bg-transparent focus:outline-none focus:border-(--vnet-violet) transition-colors resize-none"></textarea>
+                  <label htmlFor="message" className="text-sm font-semibold text-(--vnet-charcoal)">Message *</label>
+                  <textarea id="message" name="message" rows={3} required className="border-b border-(--vnet-silver) py-2 bg-transparent focus:outline-none focus:border-(--vnet-violet) transition-colors resize-none"></textarea>
                 </div>
 
                 <Button type="submit" className="w-full" disabled={isSubmitting}>

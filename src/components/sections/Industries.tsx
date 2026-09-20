@@ -25,7 +25,7 @@ export function Industries() {
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-start mb-24">
           <div className="max-w-xl">
-            <p className="text-sm font-semibold tracking-widest uppercase text-(--vnet-silver) mb-4">Industries</p>
+            <p className="text-sm font-semibold tracking-widest uppercase text-(--vnet-charcoal)/70 mb-4">Industries</p>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Sector Expertise</h2>
             <p className="text-(--vnet-silver-light) text-lg">We apply cross-industry insights to solve complex domain-specific challenges.</p>
           </div>
@@ -57,12 +57,12 @@ export function Industries() {
                     "hidden md:block overflow-hidden transition-all duration-500 pl-4",
                     isHovered ? "max-h-20 opacity-100 mt-4" : "max-h-0 opacity-0"
                   )}>
-                    <p className="text-(--vnet-silver)">{industry.description}</p>
+                    <p className="text-(--vnet-charcoal)/70">{industry.description}</p>
                   </div>
 
                   {/* Mobile always visible description */}
                   <div className="md:hidden mt-3">
-                    <p className="text-sm text-(--vnet-silver)">{industry.description}</p>
+                    <p className="text-sm text-(--vnet-charcoal)/70">{industry.description}</p>
                   </div>
                 </div>
               </div>

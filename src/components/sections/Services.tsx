@@ -43,7 +43,7 @@ export function Services() {
     <section id="services" className="py-32 bg-white relative">
       <div className="container mx-auto px-6 md:px-12">
         <div className="mb-20">
-          <p className="text-sm font-semibold tracking-widest uppercase text-(--vnet-silver) mb-4">Capabilities</p>
+          <p className="text-sm font-semibold tracking-widest uppercase text-(--vnet-charcoal)/70 mb-4">Capabilities</p>
           <h2 className="text-4xl md:text-5xl font-bold text-(--foreground)">Our Services</h2>
         </div>
 
@@ -64,7 +64,7 @@ export function Services() {
                     <div className="flex items-start md:items-center gap-6 md:gap-12">
                       <span className={cn(
                         "text-xl md:text-2xl font-light transition-colors duration-500",
-                        isActive ? "text-(--vnet-violet)" : "text-(--vnet-silver)"
+                        isActive ? "text-(--vnet-violet)" : "text-(--vnet-charcoal)/70"
                       )}>
                         {service.id}
                       </span>
@@ -82,7 +82,7 @@ export function Services() {
                           "lg:hidden overflow-hidden transition-all duration-500",
                           isActive ? "max-h-40 opacity-100 mt-4" : "max-h-0 opacity-0"
                         )}>
-                          <p className="text-(--vnet-silver) leading-relaxed">{service.description}</p>
+                          <p className="text-(--vnet-charcoal)/70 leading-relaxed">{service.description}</p>
                         </div>
                       </div>
 

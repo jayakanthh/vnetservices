@@ -8,11 +8,11 @@ import { cn } from "@/lib/utils";
 import { Button } from "./ui/Button";
 
 const navLinks = [
-  { name: "Services", href: "#services" },
-  { name: "Industries", href: "#industries" },
-  { name: "Insights", href: "#insights" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
+  { name: "Services", href: "/#services" },
+  { name: "Case Studies", href: "/case-studies" },
+  { name: "Insights", href: "/#insights" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export function Navbar() {
@@ -64,7 +64,7 @@ export function Navbar() {
         {/* CTA & Mobile Toggle */}
         <div className="flex items-center gap-4 z-50">
           <div className="hidden lg:block">
-            <Link href="#contact">
+            <Link href="/#contact">
               <Button size="sm" variant={scrolled ? "primary" : "primary"}>
                 Let's Talk
               </Button>
@@ -114,7 +114,7 @@ export function Navbar() {
               transition={{ delay: 0.5 }}
               className="mt-12"
             >
-              <Link href="#contact" onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/#contact" onClick={() => setMobileMenuOpen(false)}>
                 <Button className="w-full">Let's Talk</Button>
               </Link>
             </motion.div>

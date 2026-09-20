@@ -26,31 +26,32 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold tracking-wider uppercase mb-6 text-(--vnet-silver)">Services</h4>
             <ul className="flex flex-col gap-4 text-sm text-(--vnet-silver-light)">
-              <li><Link href="#services" className="hover:text-white transition-colors">Custom Software</Link></li>
-              <li><Link href="#services" className="hover:text-white transition-colors">Mobile Solutions</Link></li>
-              <li><Link href="#services" className="hover:text-white transition-colors">Software Testing</Link></li>
-              <li><Link href="#services" className="hover:text-white transition-colors">IT Consulting</Link></li>
-              <li><Link href="#services" className="hover:text-white transition-colors">Digital Engineering</Link></li>
+              <li><Link href="/services/custom-software" className="hover:text-white transition-colors">Custom Software</Link></li>
+              <li><Link href="/services/mobile-solutions" className="hover:text-white transition-colors">Mobile Solutions</Link></li>
+              <li><Link href="/services/software-testing" className="hover:text-white transition-colors">Software Testing</Link></li>
+              <li><Link href="/services/it-consulting" className="hover:text-white transition-colors">IT Consulting</Link></li>
+              <li><Link href="/services/custom-software" className="hover:text-white transition-colors">Digital Engineering</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-sm font-semibold tracking-wider uppercase mb-6 text-(--vnet-silver)">Industries</h4>
             <ul className="flex flex-col gap-4 text-sm text-(--vnet-silver-light)">
-              <li><Link href="#industries" className="hover:text-white transition-colors">Software & Tech</Link></li>
-              <li><Link href="#industries" className="hover:text-white transition-colors">Gaming</Link></li>
-              <li><Link href="#industries" className="hover:text-white transition-colors">Hospitality</Link></li>
-              <li><Link href="#industries" className="hover:text-white transition-colors">Financial Services</Link></li>
-              <li><Link href="#industries" className="hover:text-white transition-colors flex items-center gap-1">View All <ArrowUpRight className="w-3 h-3" /></Link></li>
+              <li><Link href="/#industries" className="hover:text-white transition-colors">Software & Tech</Link></li>
+              <li><Link href="/#industries" className="hover:text-white transition-colors">Gaming</Link></li>
+              <li><Link href="/#industries" className="hover:text-white transition-colors">Hospitality</Link></li>
+              <li><Link href="/#industries" className="hover:text-white transition-colors">Financial Services</Link></li>
+              <li><Link href="/#industries" className="hover:text-white transition-colors flex items-center gap-1">View All <ArrowUpRight className="w-3 h-3" /></Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-sm font-semibold tracking-wider uppercase mb-6 text-(--vnet-silver)">Company</h4>
             <ul className="flex flex-col gap-4 text-sm text-(--vnet-silver-light)">
-              <li><Link href="#about" className="hover:text-white transition-colors">About VNet</Link></li>
-              <li><Link href="#insights" className="hover:text-white transition-colors">Insights & News</Link></li>
-              <li><Link href="#contact" className="hover:text-white transition-colors">Contact Us</Link></li>
+              <li><Link href="/about" className="hover:text-white transition-colors">About VNet</Link></li>
+              <li><Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
+              <li><Link href="/#insights" className="hover:text-white transition-colors">Insights & News</Link></li>
+              <li><Link href="/#contact" className="hover:text-white transition-colors">Contact Us</Link></li>
             </ul>
           </div>
         </div>
@@ -58,9 +59,9 @@ export function Footer() {
         <div className="pt-8 border-t border-(--vnet-silver)/20 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-(--vnet-silver)">
           <p>&copy; {currentYear} VNet Services. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
-            <Link href="#" className="hover:text-white transition-colors">Cookie Policy</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/cookies" className="hover:text-white transition-colors">Cookie Policy</Link>
           </div>
         </div>
       </div>

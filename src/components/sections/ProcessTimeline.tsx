@@ -24,7 +24,7 @@ export function ProcessTimeline() {
     <section ref={containerRef} className="py-32 bg-white relative">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center mb-24 max-w-3xl mx-auto">
-          <p className="text-sm font-semibold tracking-widest uppercase text-(--vnet-silver) mb-4">Methodology</p>
+          <p className="text-sm font-semibold tracking-widest uppercase text-(--vnet-charcoal)/70 mb-4">Methodology</p>
           <h2 className="text-4xl md:text-5xl font-bold text-(--foreground)">How VNet Works</h2>
         </div>
 
