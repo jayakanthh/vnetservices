@@ -13,7 +13,7 @@ export default function AboutPage() {
       
       <section className="pt-48 pb-20 bg-(--vnet-off-white)">
         <div className="container mx-auto px-6 md:px-12 max-w-4xl">
-          <h1 className="text-5xl md:text-7xl font-bold text-(--foreground) mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-(--foreground) mb-8 break-words">
             Transformative <span className="text-(--vnet-violet)">Leadership.</span>
           </h1>
           <p className="text-xl md:text-2xl text-(--vnet-charcoal) leading-relaxed">

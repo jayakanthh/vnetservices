@@ -81,7 +81,7 @@ export function Services() {
                     onMouseEnter={() => setActiveIndex(index)}
                     onClick={() => setActiveIndex(index)}
                   >
-                    <div className="flex items-center gap-4 md:gap-8">
+                    <div className="flex items-start lg:items-center gap-4 md:gap-8">
                       <span className={cn(
                         "text-sm md:text-base font-light transition-colors duration-500",
                         isActive ? "text-(--vnet-violet)" : "text-(--vnet-charcoal)/70"

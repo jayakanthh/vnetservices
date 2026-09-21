@@ -31,7 +31,6 @@ export function FeaturedInsights() {
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold tracking-widest uppercase text-(--vnet-charcoal)/70 mb-4">Perspectives</p>
             <h2 className="text-4xl md:text-5xl font-bold text-(--foreground)">Latest Insights</h2>
           </div>
           <Link href="/insights/modernizing-legacy-systems" className="flex items-center gap-2 font-medium text-(--vnet-violet) hover:gap-4 transition-all">

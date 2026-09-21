@@ -30,8 +30,9 @@ export function generateStaticParams() {
   }));
 }
 
-export default function InsightPage({ params }: { params: { slug: string } }) {
-  const article = insightsData[params.slug];
+export default async function InsightPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const article = insightsData[slug];
 
   if (!article) {
     return <div>Article not found</div>;

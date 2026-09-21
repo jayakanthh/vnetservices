@@ -12,7 +12,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2, delay: 0.5 }}
-          className="absolute right-0 top-1/4 w-[800px] h-[800px] text-(--vnet-violet)"
+          className="absolute right-0 top-0 w-[800px] h-[800px] text-(--vnet-violet)"
           viewBox="0 0 800 800"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
