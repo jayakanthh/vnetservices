@@ -64,10 +64,10 @@ export function Hero() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden mb-6"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-(--foreground) leading-[1.1] mb-8">
-              Technology should <br className="hidden md:block" />
-              <span className="text-(--vnet-violet)">work for your business</span>, <br className="hidden md:block" />
-              not the other way around.
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-(--foreground) leading-[1.1]">
+              Technology <br />
+              <span className="text-(--vnet-violet)">Built Around</span> <br />
+              Your Business.
             </h1>
           </motion.div>
 
