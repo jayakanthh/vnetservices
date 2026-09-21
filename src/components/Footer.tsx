@@ -38,7 +38,6 @@ export function Footer() {
             <h4 className="text-sm font-semibold tracking-wider uppercase mb-6 text-(--vnet-silver)">Industries</h4>
             <ul className="flex flex-col gap-4 text-sm text-(--vnet-silver-light)">
               <li><Link href="/#industries" className="hover:text-white transition-colors">Software & Tech</Link></li>
-              <li><Link href="/#industries" className="hover:text-white transition-colors">Gaming</Link></li>
               <li><Link href="/#industries" className="hover:text-white transition-colors">Hospitality</Link></li>
               <li><Link href="/#industries" className="hover:text-white transition-colors">Financial Services</Link></li>
               <li><Link href="/#industries" className="hover:text-white transition-colors flex items-center gap-1">View All <ArrowUpRight className="w-3 h-3" /></Link></li>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Code, Smartphone, ShieldCheck, Server } from "lucide-react";
+import { ArrowRight, Code, Smartphone, ShieldCheck, Server, Cloud, Layers, Database } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const services = [
@@ -33,6 +33,27 @@ const services = [
     description: "Strategic guidance on digital transformation, infrastructure modernization, and technology roadmapping to drive long-term business value.",
     icon: Server,
     color: "bg-slate-50 text-slate-900"
+  },
+  {
+    id: "05",
+    name: "Cloud Native Applications",
+    description: "Applications designed and built for cloud computing architecture, run and hosted in the cloud to capitalize on its scalability and resilience.",
+    icon: Cloud,
+    color: "bg-sky-50 text-sky-900"
+  },
+  {
+    id: "06",
+    name: "N-Tier Architecture Apps",
+    description: "Applications divided into logical layers and physical tiers, separating responsibilities so each layer can be built, scaled, and maintained independently.",
+    icon: Layers,
+    color: "bg-teal-50 text-teal-900"
+  },
+  {
+    id: "07",
+    name: "Database Services",
+    description: "Cloud database solutions to store, manage, and access your data reliably, integrated with the infrastructure and vendors that fit your stack.",
+    icon: Database,
+    color: "bg-emerald-50 text-emerald-900"
   }
 ];
 
@@ -42,8 +63,7 @@ export function Services() {
   return (
     <section id="services" className="py-32 bg-white relative">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="mb-20">
-          <p className="text-sm font-semibold tracking-widest uppercase text-(--vnet-charcoal)/70 mb-4">Capabilities</p>
+        <div className="mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-(--foreground)">Our Services</h2>
         </div>
 
@@ -57,21 +77,21 @@ export function Services() {
                 return (
                   <div 
                     key={service.id}
-                    className="group border-b border-(--vnet-silver-light) py-8 md:py-12 cursor-pointer transition-colors"
+                    className="group border-b border-(--vnet-silver-light) py-4 md:py-5 cursor-pointer transition-colors"
                     onMouseEnter={() => setActiveIndex(index)}
                     onClick={() => setActiveIndex(index)}
                   >
-                    <div className="flex items-start md:items-center gap-6 md:gap-12">
+                    <div className="flex items-center gap-4 md:gap-8">
                       <span className={cn(
-                        "text-xl md:text-2xl font-light transition-colors duration-500",
+                        "text-sm md:text-base font-light transition-colors duration-500",
                         isActive ? "text-(--vnet-violet)" : "text-(--vnet-charcoal)/70"
                       )}>
                         {service.id}
                       </span>
-                      
+
                       <div className="flex-1">
                         <h3 className={cn(
-                          "text-2xl md:text-4xl font-semibold mb-4 transition-all duration-500",
+                          "text-base md:text-lg font-semibold transition-all duration-500",
                           isActive ? "text-(--foreground) translate-x-2 md:translate-x-4" : "text-(--vnet-charcoal)"
                         )}>
                           {service.name}
@@ -87,7 +107,7 @@ export function Services() {
                       </div>
 
                       <div className={cn(
-                        "hidden md:flex items-center justify-center w-12 h-12 rounded-full border transition-all duration-500",
+                        "hidden md:flex items-center justify-center w-9 h-9 rounded-full border transition-all duration-500",
                         isActive ? "border-(--vnet-violet) text-(--vnet-violet) bg-violet-50" : "border-transparent text-transparent"
                       )}>
                         <ArrowRight className={cn(
@@ -129,7 +149,7 @@ export function Services() {
                   
                   <div className="mt-8">
                     <button className="flex items-center gap-2 text-(--vnet-violet) font-medium uppercase tracking-wide text-sm group">
-                      Learn more about this capability
+                      Learn more
                       <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </button>
                   </div>

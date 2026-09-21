@@ -33,22 +33,6 @@ export default function AboutPage() {
               We bridge the gap between strategic vision and technical execution. Our methodology ensures that every line of code we write and every system we architect directly contributes to your bottom line.
             </p>
           </div>
-
-          <h2 className="text-3xl font-bold mt-20 mb-12">Executive Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-              <div className="w-full h-80 bg-(--vnet-silver-light) rounded-xl mb-6"></div>
-              <h3 className="text-xl font-bold">John Doe</h3>
-              <p className="text-(--vnet-violet) font-medium mb-4">Chief Executive Officer</p>
-              <p className="text-(--vnet-charcoal)/80">With over two decades of enterprise technology experience, John leads VNet's strategic vision and global operations.</p>
-            </div>
-            <div>
-              <div className="w-full h-80 bg-(--vnet-silver-light) rounded-xl mb-6"></div>
-              <h3 className="text-xl font-bold">Jane Smith</h3>
-              <p className="text-(--vnet-violet) font-medium mb-4">Chief Technology Officer</p>
-              <p className="text-(--vnet-charcoal)/80">Jane oversees our digital engineering practices, ensuring that our architectural solutions remain at the cutting edge of innovation.</p>
-            </div>
-          </div>
         </div>
       </section>
 

@@ -1,20 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const industries = [
-  { name: "Software", description: "Product engineering and lifecycle management for SaaS and enterprise platforms." },
-  { name: "Gaming", description: "High-performance backend infrastructure and engaging player experiences." },
-  { name: "Hospitality", description: "Guest-centric digital platforms and integrated property management systems." },
-  { name: "Energy", description: "Data-driven operational tools and smart infrastructure management." },
-  { name: "Financial Services", description: "Secure, compliant fintech applications and legacy modernization." },
-  { name: "Insurance", description: "Streamlined claims processing and modern customer portals." },
-  { name: "Retail", description: "Omnichannel commerce solutions and supply chain visibility." },
-  { name: "Telecommunications", description: "Network management portals and customer billing solutions." },
-  { name: "Healthcare", description: "Compliant patient systems and interoperable health data platforms." },
-  { name: "Education", description: "Scalable learning management and student engagement platforms." }
+  { name: "Software", description: "End-to-end product engineering for SaaS and enterprise platforms, from architecture through ongoing release management." },
+  { name: "Hospitality", description: "Guest-facing booking and loyalty experiences backed by integrated property and reservation management systems." },
+  { name: "Energy", description: "Operational dashboards and smart infrastructure tooling that turn field and sensor data into decisions." },
+  { name: "Financial Services", description: "Secure, compliant fintech applications and careful modernization of legacy core banking and trading systems." },
+  { name: "Insurance", description: "Faster claims processing and self-service customer portals that cut manual handling without cutting corners on compliance." },
+  { name: "Retail", description: "Omnichannel commerce platforms with real-time inventory and supply chain visibility across every sales channel." },
+  { name: "Telecommunications", description: "Network operations portals and customer billing systems built to handle scale, uptime, and regulatory demands." },
+  { name: "Healthcare", description: "HIPAA-compliant patient systems and interoperable health data platforms that connect providers, payers, and patients." },
+  { name: "Education", description: "Learning management and student engagement platforms that scale from a single classroom to district-wide rollout." }
 ];
 
 export function Industries() {
@@ -25,7 +23,7 @@ export function Industries() {
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-start mb-24">
           <div className="max-w-xl">
-            <p className="text-sm font-semibold tracking-widest uppercase text-(--vnet-charcoal)/70 mb-4">Industries</p>
+            <p className="text-sm font-semibold tracking-widest uppercase text-(--vnet-silver-light)/70 mb-4">Industries</p>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Sector Expertise</h2>
             <p className="text-(--vnet-silver-light) text-lg">We apply cross-industry insights to solve complex domain-specific challenges.</p>
           </div>
@@ -37,7 +35,7 @@ export function Industries() {
             const isDimmed = hoveredIndex !== null && hoveredIndex !== index;
 
             return (
-              <div 
+              <div
                 key={industry.name}
                 className="group relative border-b border-(--vnet-silver)/20 py-8 cursor-pointer"
                 onMouseEnter={() => setHoveredIndex(index)}
@@ -51,18 +49,18 @@ export function Industries() {
                   )}>
                     {industry.name}
                   </h3>
-                  
+
                   {/* Desktop hover description */}
                   <div className={cn(
                     "hidden md:block overflow-hidden transition-all duration-500 pl-4",
                     isHovered ? "max-h-20 opacity-100 mt-4" : "max-h-0 opacity-0"
                   )}>
-                    <p className="text-(--vnet-charcoal)/70">{industry.description}</p>
+                    <p className="text-(--vnet-silver-light)/70">{industry.description}</p>
                   </div>
 
                   {/* Mobile always visible description */}
                   <div className="md:hidden mt-3">
-                    <p className="text-sm text-(--vnet-charcoal)/70">{industry.description}</p>
+                    <p className="text-sm text-(--vnet-silver-light)/70">{industry.description}</p>
                   </div>
                 </div>
               </div>

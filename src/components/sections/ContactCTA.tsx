@@ -31,7 +31,7 @@ export function ContactCTA() {
   };
 
   return (
-    <section id="contact" className="py-32 bg-(--vnet-off-white)">
+    <section id="contact" className="py-32 bg-white">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
           

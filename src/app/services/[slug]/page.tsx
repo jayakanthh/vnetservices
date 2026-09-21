@@ -57,11 +57,10 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       <section className="py-24">
         <div className="container mx-auto px-6 md:px-12 max-w-5xl">
           <h2 className="text-3xl font-bold mb-12">Core Capabilities</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {service.features.map((feature, idx) => (
-              <div key={idx} className="p-8 border border-(--vnet-silver-light) rounded-lg shadow-sm">
-                <h3 className="text-xl font-bold text-(--foreground) mb-4">{feature}</h3>
-                <p className="text-(--vnet-charcoal)">We apply industry best practices to ensure this capability meets the highest standards of enterprise technology.</p>
+              <div key={idx} className="p-6 border border-(--vnet-silver-light) rounded-lg">
+                <h3 className="text-lg font-semibold text-(--foreground)">{feature}</h3>
               </div>
             ))}
           </div>

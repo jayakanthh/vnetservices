@@ -4,11 +4,12 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const steps = [
-  { id: "01", title: "Understand", desc: "Deep strategic alignment and technical discovery." },
-  { id: "02", title: "Design", desc: "Architecting systems for scale and user experience." },
-  { id: "03", title: "Build", desc: "Agile, transparent engineering and development." },
-  { id: "04", title: "Integrate", desc: "Seamless implementation into existing business operations." },
-  { id: "05", title: "Deliver", desc: "Deployment, knowledge transfer, and ongoing evolution." }
+  { id: "01", title: "Research & Discovery", desc: "In-depth research into your business, users, and technical landscape before any work begins." },
+  { id: "02", title: "Idea Validation", desc: "Stress-testing the concept against real constraints and goals before committing engineering time." },
+  { id: "03", title: "UX & UI Design", desc: "Designing and prototyping the experience around how your users actually work." },
+  { id: "04", title: "Development", desc: "Agile, transparent engineering with regular checkpoints as the system is built." },
+  { id: "05", title: "Testing & QA", desc: "Rigorous quality assurance to catch issues before they ever reach production." },
+  { id: "06", title: "Maintenance & Support", desc: "Ongoing support after launch to keep systems reliable as your business evolves." }
 ];
 
 export function ProcessTimeline() {
