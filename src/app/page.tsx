@@ -17,16 +17,28 @@ export default function Home() {
       <main className="flex min-h-screen flex-col">
         <Hero />
         
-        {/* Social Proof / Trusted By */}
-        <section className="py-12 border-b border-(--vnet-silver-light) bg-white">
-          <div className="container mx-auto px-6 md:px-12 text-center">
-            <p className="text-sm font-semibold tracking-widest uppercase text-(--vnet-charcoal)/60 mb-8">Trusted By Industry Leaders</p>
-            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 grayscale">
-              <span className="text-xl font-bold font-serif">Acme Corp</span>
-              <span className="text-xl font-bold font-sans">GlobalTech</span>
-              <span className="text-xl font-bold font-mono">FINSYS</span>
-              <span className="text-xl font-bold font-serif italic">MediCare Plus</span>
-              <span className="text-xl font-bold tracking-tighter">LOGISTICA</span>
+        {/* Who We Are - Original Content */}
+        <section className="py-24 bg-white border-b border-(--vnet-silver-light)">
+          <div className="container mx-auto px-6 md:px-12 max-w-5xl">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              <div>
+                <h3 className="text-xl font-bold mb-4 text-(--foreground)">Custom Solutions</h3>
+                <p className="text-(--vnet-charcoal) leading-relaxed">
+                  Our custom software development craftsmanship and business prowess define our approach to devising custom software applications. Abundant expertise married to exquisite development processes helps the software projects we deliver infuse our client's businesses with commercial value and long-lasting market dominance.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-4 text-(--foreground)">Customer First Strategy</h3>
+                <p className="text-(--vnet-charcoal) leading-relaxed">
+                  Customer first strategy is adopted by the customer-centric solutions to make customer business decisions with not products as their center but the customers. Meaning, we will develop products and services with respect to customer interests, aiming to satisfy their needs and wants.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-4 text-(--foreground)">Process Oriented Approach</h3>
+                <p className="text-(--vnet-charcoal) leading-relaxed">
+                  Process-Oriented Approach is a set of axiomatic ideas and actions intended to deal with a problem or situation by developing a resolution model consisting of process entities (step, procedure, task). Thus, predictable and always equally good results are achieved.
+                </p>
+              </div>
             </div>
           </div>
         </section>

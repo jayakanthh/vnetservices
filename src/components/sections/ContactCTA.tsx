@@ -48,14 +48,14 @@ export function ContactCTA() {
               <div>
                 <p className="text-sm font-semibold tracking-wide uppercase text-(--vnet-charcoal)/70 mb-2">Global Headquarters</p>
                 <p className="text-(--foreground) text-lg font-medium">
-                  123 Innovation Drive, Tech District<br/>
-                  San Francisco, CA 94105
+                  2484 Emily Brook Way<br/>
+                  Apex, NC 27523
                 </p>
               </div>
               <div>
                 <p className="text-sm font-semibold tracking-wide uppercase text-(--vnet-charcoal)/70 mb-2">Direct Contact</p>
-                <a href="mailto:contact@vnetservices.com" className="text-(--vnet-violet) text-lg font-medium hover:underline block mb-1">contact@vnetservices.com</a>
-                <a href="tel:+15551234567" className="text-(--vnet-charcoal) text-lg font-medium hover:text-(--vnet-violet) transition-colors">+1 (555) 123-4567</a>
+                <a href="mailto:support@vnetservices.com" className="text-(--vnet-violet) text-lg font-medium hover:underline block mb-1">support@vnetservices.com</a>
+                <a href="tel:9199851147" className="text-(--vnet-charcoal) text-lg font-medium hover:text-(--vnet-violet) transition-colors">919-985-1147</a>
               </div>
             </div>
           </div>
