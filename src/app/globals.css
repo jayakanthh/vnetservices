@@ -30,6 +30,15 @@
 }
 
 @layer base {
+  html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+
+  html::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
   body {
     background-color: var(--background);
     color: var(--foreground);
@@ -37,7 +46,7 @@
     -moz-osx-font-smoothing: grayscale;
     overflow-x: clip;
   }
-  
+
   ::selection {
     background-color: var(--vnet-violet);
     color: white;

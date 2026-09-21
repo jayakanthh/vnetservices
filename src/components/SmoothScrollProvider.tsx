@@ -2,64 +2,70 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import Lenis from "lenis";
+
+const SCROLLBAR_HIDE_DELAY = 1500;
+const NAVBAR_OFFSET = 80;
 
 export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const lenisRef = useRef<Lenis | null>(null);
+  const thumbRef = useRef<HTMLDivElement | null>(null);
+  const hideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
-      orientation: "vertical",
-      gestureOrientation: "vertical",
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
-    
-    lenisRef.current = lenis;
+    // Custom auto-hide scrollbar, driven by native scroll position
+    function updateThumb() {
+      const thumb = thumbRef.current;
+      if (!thumb) return;
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+      const viewportHeight = window.innerHeight;
+      const contentHeight = document.documentElement.scrollHeight;
+      const maxScroll = contentHeight - viewportHeight;
+      if (maxScroll <= 0) return;
+
+      const thumbHeight = Math.max((viewportHeight / contentHeight) * viewportHeight, 40);
+      const maxThumbTravel = viewportHeight - thumbHeight;
+      const progress = window.scrollY / maxScroll;
+      const thumbTop = progress * maxThumbTravel;
+
+      thumb.style.height = `${thumbHeight}px`;
+      thumb.style.transform = `translateY(${thumbTop}px)`;
+      thumb.style.opacity = "1";
+
+      if (hideTimeoutRef.current) clearTimeout(hideTimeoutRef.current);
+      hideTimeoutRef.current = setTimeout(() => {
+        if (thumbRef.current) thumbRef.current.style.opacity = "0";
+      }, SCROLLBAR_HIDE_DELAY);
     }
 
-    requestAnimationFrame(raf);
+    updateThumb();
+    window.addEventListener("scroll", updateThumb, { passive: true });
+    window.addEventListener("resize", updateThumb);
 
-    // Handle anchor links for smooth scrolling with Lenis
+    // Handle anchor links, offsetting for the fixed navbar
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const anchor = target.closest("a");
-      
+
       if (
-        anchor && 
-        anchor.hash && 
-        anchor.hash.startsWith("#") && 
-        anchor.origin === window.location.origin
+        anchor &&
+        anchor.hash &&
+        anchor.hash.startsWith("#") &&
+        anchor.origin === window.location.origin &&
+        anchor.pathname === window.location.pathname
       ) {
-        // Only intercept if the anchor points to the CURRENT page.
-        if (anchor.pathname === window.location.pathname) {
+        if (anchor.hash === "#top") {
           e.preventDefault();
-          
-          if (anchor.hash === "#top") {
-            lenis.scrollTo(0, {
-              duration: 1.5,
-              easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-            });
-            window.history.pushState(null, "", window.location.pathname);
-          } else {
-            const targetElement = document.querySelector(anchor.hash);
-            if (targetElement) {
-              lenis.scrollTo(anchor.hash, {
-                offset: -80, // Offset for navbar
-                duration: 1.5,
-                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-              });
-              window.history.pushState(null, "", anchor.hash);
-            }
-          }
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          window.history.pushState(null, "", window.location.pathname);
+          return;
+        }
+
+        const targetElement = document.querySelector(anchor.hash);
+        if (targetElement) {
+          e.preventDefault();
+          const top = targetElement.getBoundingClientRect().top + window.scrollY - NAVBAR_OFFSET;
+          window.scrollTo({ top, behavior: "smooth" });
+          window.history.pushState(null, "", anchor.hash);
         }
       }
     };
@@ -67,24 +73,29 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     document.addEventListener("click", handleAnchorClick);
 
     return () => {
-      lenis.destroy();
+      window.removeEventListener("scroll", updateThumb);
+      window.removeEventListener("resize", updateThumb);
       document.removeEventListener("click", handleAnchorClick);
+      if (hideTimeoutRef.current) clearTimeout(hideTimeoutRef.current);
     };
   }, []);
 
-  // Force resize calculation when pathname changes
+  // Scroll to top on route change, simulating native browser behavior
   useEffect(() => {
-    if (lenisRef.current) {
-      // Small timeout to allow DOM to paint the new page content
-      setTimeout(() => {
-        lenisRef.current?.resize();
-        // Also scroll to top on navigation to simulate native browser behavior
-        if (!window.location.hash) {
-          lenisRef.current?.scrollTo(0, { immediate: true });
-        }
-      }, 100);
+    if (!window.location.hash) {
+      window.scrollTo({ top: 0 });
     }
   }, [pathname]);
 
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+      <div
+        ref={thumbRef}
+        aria-hidden="true"
+        className="fixed right-1 top-0 w-1.5 rounded-full bg-(--vnet-silver) opacity-0 pointer-events-none transition-opacity duration-300 z-[60]"
+        style={{ height: 40 }}
+      />
+    </>
+  );
 }
