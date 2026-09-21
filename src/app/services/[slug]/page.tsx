@@ -46,7 +46,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <section className="pt-48 pb-20 bg-(--vnet-off-white)">
         <div className="container mx-auto px-6 md:px-12 max-w-5xl">
           <p className="text-sm font-semibold tracking-widest uppercase text-(--vnet-violet) mb-4">Service Offering</p>
-          <h1 className="text-5xl md:text-6xl font-bold text-(--foreground) mb-8">
+          <h1 className="text-5xl md:text-7xl font-bold text-(--foreground) mb-8">
             {service.title}
           </h1>
           <p className="text-xl md:text-2xl text-(--vnet-charcoal) leading-relaxed max-w-3xl">
@@ -57,7 +57,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       <section className="py-24">
         <div className="container mx-auto px-6 md:px-12 max-w-5xl">
-          <h2 className="text-3xl font-bold mb-12">Core Capabilities</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">Core Capabilities</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {service.features.map((feature, idx) => (
               <div key={idx} className="p-6 border border-(--vnet-silver-light) rounded-lg">

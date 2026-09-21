@@ -4,7 +4,7 @@ export function AboutNarrative() {
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-(--foreground) leading-tight sticky top-32">
+            <h2 className="text-4xl md:text-5xl font-bold text-(--foreground) leading-tight sticky top-32">
               Transformative <br />
               Leadership. <br />
               <span className="text-(--vnet-violet)">Human-Centric</span> <br />

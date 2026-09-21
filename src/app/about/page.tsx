@@ -24,7 +24,7 @@ export default function AboutPage() {
 
       <section className="py-24">
         <div className="container mx-auto px-6 md:px-12 max-w-4xl">
-          <h2 className="text-3xl font-bold mb-12">Our Story</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">Our Story</h2>
           <div className="prose prose-lg text-(--vnet-charcoal)">
             <p className="mb-6">
               Founded on the principle that technology should work for your business—not the other way around—VNet Services has grown into a premier partner for organizations seeking scalable, resilient, and innovative digital solutions.

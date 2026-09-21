@@ -36,7 +36,7 @@ export function ContactCTA() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
           
           <div>
-            <h2 className="text-5xl md:text-6xl font-bold text-(--foreground) mb-8 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-(--foreground) mb-8 leading-tight">
               Let's build <br />
               <span className="text-(--vnet-violet)">what's next.</span>
             </h2>
